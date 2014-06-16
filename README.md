@@ -28,7 +28,8 @@ Install from CPAN:
 
     install MIME::Lite
 
-Note: If you want to install libraries locally don't forget to add this to your `.bashrc`:
+Note: If you want to install libraries locally don't forget to add this to your `.bashrc`
+and/or to crontab:
 
     export PERL5LIB=/home/<username>/perl5/lib/perl5
 
@@ -36,6 +37,7 @@ Crontab examples
 -------------
 
 ~~~
+#PERL5LIB=/home/<username>/perl5/lib/perl5
 SVN_EXAMPLE=svn+ssh://svn.example.com/home/svn/project/trunk
 SVNNOTIFY=svnremotenotify/svnremotenotify.pl -t your@email.com --notified svnremotenotify/notfied.revs
 

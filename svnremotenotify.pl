@@ -119,6 +119,8 @@ foreach my $rev (sort(keys(%logs))) {
 		Type     => 'text/plain',
 		Data => $msg);
 
+	$project =~ s/\//_/;
+
 	$mime->attach(
 		Type => 'text/plain',
 		Filename => "$project-r$rev.diff",
@@ -288,8 +290,11 @@ sub appendLog() {
 
 sub projectName {
 	my ($url) = @_;
-	if ( $url =~ /([^\/]+\/)(trunk|tags|branches)(\/.+)?$/ )	{
-		return $1.$2.$3;
+	if ( $url =~ /([^\/]+\/)(trunk|tags|branches)(\/.+)?$/ ) {
+		if (defined $3) {
+			return $1.$2.$3;
+		}
+		return $1.$2;
 	} else {
 		return basename($url);
 	}

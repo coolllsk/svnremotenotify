@@ -114,22 +114,19 @@ foreach my $rev (sort(keys(%logs))) {
 	$msg .= $logs{$rev}{log}."\n";
 	#$msg .= join('', @diff);
 
-	#$mime->set('Type', '');
 	$mime->attach(
 		Type     => 'text/plain',
 		Data => $msg);
 
-	$project =~ s/\//_/g;
+	my $filename = "$project-r$rev.diff";
+	$filename =~ s/\//_/g;
 
 	$mime->attach(
 		Type => 'text/plain',
-		Filename => "$project-r$rev.diff",
+		Filename => $filename,
 		Data => join('', @diff),
 	);
 	$mime->send;
-
-	#print $msg;
-
 
 }
 

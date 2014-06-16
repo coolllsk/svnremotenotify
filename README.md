@@ -28,11 +28,6 @@ Install from CPAN:
 
     install MIME::Lite
 
-Note: If you want to install libraries locally don't forget to add this to your `.bashrc`
-and/or to crontab:
-
-    export PERL5LIB=/home/<username>/perl5/lib/perl5
-
 Crontab examples
 -------------
 

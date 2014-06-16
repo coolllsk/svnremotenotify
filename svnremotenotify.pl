@@ -119,7 +119,7 @@ foreach my $rev (sort(keys(%logs))) {
 		Type     => 'text/plain',
 		Data => $msg);
 
-	$project =~ s/\//_/;
+	$project =~ s/\//_/g;
 
 	$mime->attach(
 		Type => 'text/plain',
